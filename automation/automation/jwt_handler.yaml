@@ -1,0 +1,33 @@
+imports:
+  - io
+
+functions:
+  generate:
+    meta:
+      short: Generate JWT
+    params:
+      scp:
+        require: false
+        types:
+          - { wf: String, suffix: String }
+          - { wf: Array, suffix: Array }
+      header:
+        required: true
+        types:
+          - { wf: KV,     suffix: KV }
+          - { wf: String, suffix: String }
+          - { wf: Reader, suffix: Stream }
+      payload:
+        required: true
+        types:
+          - { wf: KV,     suffix: KV }
+          - { wf: String, suffix: String }
+          - { wf: Reader, suffix: Stream }
+      secret:
+        required: true
+        types:
+          - { wf: String, suffix: String }
+          - { wf: Reader, suffix: Stream }
+    results:
+      token:
+        wf: String
